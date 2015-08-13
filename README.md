@@ -1,7 +1,9 @@
 # siteUpdater
-updates HTML posts on my personal website
 
-Implemented using Linked Lists as a data structure 
-Each node holds a line of HTML code
-Dynamically allocated memory for expanding code
-Hopefully will add FTP download/upload in the future
+siteUpdater is a C++ based post editor for my personal website, stevenan.com
+
+  - Implemented from the ground up text editor using Linked Lists
+  - Each node holds a line of code of HTML
+  - Adds posts automatically and shifts lines down whenever necessary
+
+>>Hoping to add FTP upload/download to save even more trouble in the future
