@@ -10,7 +10,7 @@ class linkedList
 	private:
 		node<T>* head;
 		node<T>* tail;
-		T numItems;
+		int numItems;
 	public:
 		node<T>* getHead() const;
 		void insertIntoList(T item);

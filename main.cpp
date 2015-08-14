@@ -1,18 +1,38 @@
 //Steven An 2015
 #include <iostream>
+#include <fstream>
+#include <string>
 #include "linkedList.h"
 using namespace std;
 
+void displayItems(linkedList<string> *ptr);
+
 int main()
 {
-	linkedList<int> *link = new linkedList<int>;
-	link->insertIntoList(22);
-	link->insertIntoList(11);
-	link->insertIntoList(1);
-	link->insertIntoList(2);
-	for(int i = 0; i < link->getNumItems(); i++)
+	string fileName = "projects.html"; 
+	string line;
+	linkedList<string> *link = new linkedList<string>;
+	ifstream myFile (fileName.c_str());
+	if(myFile.is_open())
 	{
-		cout << link->getItemAtIndex(i) << endl;
+		while(getline(myFile, line))
+		{
+			link->insertIntoList(line);
+		}
 	}
+	else
+	{
+		cout << fileName << " not found\n";
+	}
+	displayItems(link);
 	return 0;
+}
+
+
+void displayItems(linkedList<string> *ptr)
+{
+	for(int i = 0; i < ptr->getNumItems(); i++)
+	{
+		cout << ptr->getItemAtIndex(i) << endl;
+	}
 }
