@@ -19,3 +19,11 @@ siteUpdater is a C++ based post editor for my personal website, stevenan.com
 	-Fixed bug with numItems assigned as a template value 
 	-Made display function to print out contents of list line by line
 	-main.exe added for Windows systems/compilation
+	
+8/14/2015 04:19:23 VERSION 1.2
+
+	-Display function now has another argument, lines
+	-Lines allows the client to print out line numbers, similar to :set nu in Vim
+	-Made filename a global variable
+	-Display prints out seperator lines as well as the number of lines in a file
+	-Added a destructor

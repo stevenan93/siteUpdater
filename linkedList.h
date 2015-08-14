@@ -15,9 +15,38 @@ class linkedList
 		node<T>* getHead() const;
 		void insertIntoList(T item);
 		int getNumItems() const;
-		linkedList();
+		linkedList(); //c_tor
+		~linkedList(); //d_tor
 		T getItemAtIndex(int index) const;
 };
+
+template <class T> 
+linkedList<T>::linkedList()
+{
+	head = new node<T>;
+	tail = new node<T>;
+	head->setNext(tail); 
+	tail->setPrev(head); //head-> <-tail
+
+	head->setPrev(NULL);
+	tail->setNext(NULL); //NULL<-head-> <-tail->NULL
+	numItems = 0;
+}
+
+template <class T> 
+linkedList<T>::~linkedList()
+{
+	node<T> *curPtr = head->getNext();
+	node<T> *temp;
+	while(curPtr)
+	{
+		temp = curPtr->getNext();
+		delete curPtr;
+		curPtr = temp;
+	}
+	delete head;
+	numItems = 0;
+}
 
 template <class T> 
 T linkedList<T>::getItemAtIndex(int index) const
@@ -37,18 +66,6 @@ T linkedList<T>::getItemAtIndex(int index) const
 	}
 }
 
-template <class T> 
-linkedList<T>::linkedList()
-{
-	head = new node<T>;
-	tail = new node<T>;
-	head->setNext(tail); 
-	tail->setPrev(head); //head-> <-tail
-
-	head->setPrev(NULL);
-	tail->setNext(NULL); //NULL<-head-> <-tail->NULL
-	numItems = 0;
-}
 
 template <class T> 
 int linkedList<T>::getNumItems() const
@@ -72,5 +89,7 @@ void linkedList<T>::insertIntoList(T item)
 	temp->setNext(newNode);
 	++numItems;
 }
+
+
 
 #endif
