@@ -11,12 +11,19 @@ class node
 		node* prev;
 	public:
 		T getItem() const;
+		void setItem(T newItem);
 		node* getNext() const;
 		node* getPrev() const;
 		void insertIntoNode(T item);
 		void setNext(node* ptr);
 		void setPrev(node* ptr);
 };
+
+template <class T>
+void node<T>::setItem(T newItem)
+{
+	item = newItem;
+}
 
 template <class T> 
 void node<T>::setNext(node* ptr)
