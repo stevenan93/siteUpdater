@@ -86,3 +86,8 @@ siteUpdater is a C++ based post editor for my personal website, stevenan.com
 	-song function fixed
 	-added remove sections of html code
 	-removed some redundant files
+	
+8/23/2015 1:43:50 VERSION 1.91
+	
+	-date output fixed
+	-GUI coming up next :) 
